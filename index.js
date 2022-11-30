@@ -8,16 +8,16 @@
 // adultos([28, 45, 71, 21]) -> false
 
 const adultos = (arr) => {
- const mayores = [];
- arr.forEach((edad) => {
-  if (edad >= 18 && edad < 70) {
-   mayores.push(true);
-  } else {
-   mayores.push(false);
-  }
- });
- if (mayores.includes(false)) return false;
- return true;
+	const mayores = [];
+	arr.forEach((edad) => {
+		if (edad >= 18 && edad < 70) {
+			mayores.push(true);
+		} else {
+			mayores.push(false);
+		}
+	});
+	if (mayores.includes(false)) return false;
+	return true;
 };
 
 // console.log(adultos([28, 45, 19, 21, 18, 69]));
@@ -28,14 +28,14 @@ const adultos = (arr) => {
 //el número de caracteres que aparecen más de una vez.
 
 const numDuplicados = (string) => {
- const obj = string.split('').reduce((acc, value) => {
-  return { ...acc, [value]: (acc[value] || 0) + 1 };
- }, {});
- let counter = 0;
- Object.values(obj).forEach((val) => {
-  if (val > 1) counter++;
- });
- return counter;
+	const obj = string.split('').reduce((acc, value) => {
+		return { ...acc, [value]: (acc[value] || 0) + 1 };
+	}, {});
+	let counter = 0;
+	Object.values(obj).forEach((val) => {
+		if (val > 1) counter++;
+	});
+	return counter;
 };
 
 // console.log(numDuplicados('abcaa'));
@@ -46,11 +46,11 @@ const numDuplicados = (string) => {
 //con el número de veces que aparece cada caracter (exceptuando el espacio en blanco)
 
 const frecuencias = (string) => {
- const newString = string.replace(/\s/g, '');
- const result = newString.split('').reduce((acc, value) => {
-  return { ...acc, [value]: (acc[value] || 0) + 1 };
- }, {});
- return result;
+	const newString = string.replace(/\s/g, '');
+	const result = newString.split('').reduce((acc, value) => {
+		return { ...acc, [value]: (acc[value] || 0) + 1 };
+	}, {});
+	return result;
 };
 
 // console.log(frecuencias('hola mundo'));
@@ -60,22 +60,22 @@ const frecuencias = (string) => {
 // retornar un arreglo con todos los caracteres que las dos cadenas tienen en común.
 
 const caracteresEnComun = (string1, string2) => {
- let valueArray1 = null;
- let valueArray2 = null;
- const repeteated = [];
+	let valueArray1 = null;
+	let valueArray2 = null;
+	const repeteated = [];
 
- string1.split('').forEach((letter) => {
-  valueArray1 = letter;
+	string1.split('').forEach((letter) => {
+		valueArray1 = letter;
 
-  string2.split('').forEach((letter2) => {
-   valueArray2 = letter2;
-   if (valueArray1 === valueArray2 && !repeteated.includes(valueArray1)) {
-    repeteated.push(valueArray1);
-   }
-  });
- });
+		string2.split('').forEach((letter2) => {
+			valueArray2 = letter2;
+			if (valueArray1 === valueArray2 && !repeteated.includes(valueArray1)) {
+				repeteated.push(valueArray1);
+			}
+		});
+	});
 
- return repeteated;
+	return repeteated;
 };
 
 // console.log(caracteresEnComun('Hola', 'Mundo'));
@@ -88,14 +88,14 @@ const caracteresEnComun = (string1, string2) => {
 // espacios en blanco hasta completar la longitud.
 
 const ajustarTexto = (string, length) => {
- if (!string.length) {
-  return string.padEnd(length);
- }
- if (string.length < length) {
-  return string.padEnd(length);
- }
- const newString = string.slice(0, -Math.abs(length));
- return newString;
+	if (!string.length) {
+		return string.padEnd(length);
+	}
+	if (string.length < length) {
+		return string.padEnd(length);
+	}
+	const newString = string.slice(0, -Math.abs(length));
+	return newString;
 };
 
 // console.log(ajustarTexto('', 3));
@@ -108,10 +108,10 @@ const ajustarTexto = (string, length) => {
 // phrase, typically using all the original letters exactly once.
 
 const anagram = (string1, string2) => {
- const stringSorted1 = string1.split('').sort().join('');
- const stringSorted2 = string2.split('').sort().join('');
- if (stringSorted1 === stringSorted2) return true;
- return false;
+	const stringSorted1 = string1.split('').sort().join('');
+	const stringSorted2 = string2.split('').sort().join('');
+	if (stringSorted1 === stringSorted2) return true;
+	return false;
 };
 
 // console.log(anagram('anagram', 'nagaram'));
@@ -121,12 +121,12 @@ const anagram = (string1, string2) => {
 // Note that you must do this in-place without making a copy of the array.
 
 const sortNonZeroElements = (arr) => {
- arr.sort((a, b) => {
-  if (b === 0 && a !== 0) return -1;
-  if (a === 0 && b !== 0) return 1;
-  return 0;
- });
- return arr;
+	arr.sort((a, b) => {
+		if (b === 0 && a !== 0) return -1;
+		if (a === 0 && b !== 0) return 1;
+		return 0;
+	});
+	return arr;
 };
 
 //console.log(sortNonZeroElements([0, 1, 0, 3, 12]));
@@ -138,22 +138,22 @@ const sortNonZeroElements = (arr) => {
 // You can return the answer in any order.
 
 const sumIdx = (nums, target) => {
- const prevResult = [];
- nums.forEach((num, idxEach) => {
-  let base = num;
-  const result = nums
-   .map((el, idxMap) => {
-    if (idxEach !== idxMap && el + base === target) {
-     return [idxEach, idxMap];
-    }
-   })
-   .filter((el) => el !== undefined)
-   .flat();
-  prevResult.push(result);
- });
+	const prevResult = [];
+	nums.forEach((num, idxEach) => {
+		let base = num;
+		const result = nums
+			.map((el, idxMap) => {
+				if (idxEach !== idxMap && el + base === target) {
+					return [idxEach, idxMap];
+				}
+			})
+			.filter((el) => el !== undefined)
+			.flat();
+		prevResult.push(result);
+	});
 
- const finalResult = [...new Set(prevResult.flat())];
- return finalResult;
+	const finalResult = [...new Set(prevResult.flat())];
+	return finalResult;
 };
 
 // console.log(sumIdx([2, 7, 11, 15], 9));
